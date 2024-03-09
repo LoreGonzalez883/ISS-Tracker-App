@@ -48,7 +48,7 @@ The main method of interaction with the application is through `curl` commands. 
 - `/comment`: This will return the data labelled as 'COMMENT' in the ISS data file
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/comment'
 	[
 	  "Units are in kg and m^2",
@@ -63,7 +63,7 @@ The main method of interaction with the application is through `curl` commands. 
 	  "Begin sequence of events",
 	  "TRAJECTORY EVENT SUMMARY:",
 	...
-
+```
 
 - `/header`: This will return the data labelled as 'header' in the ISS data file
 
