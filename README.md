@@ -68,18 +68,18 @@ The main method of interaction with the application is through `curl` commands. 
 - `/header`: This will return the data labelled as 'header' in the ISS data file
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/header'
 	{
 	  "CREATION_DATE": "2024-067T16:48:35.714Z",
 	  "ORIGINATOR": "JSC"
 	}
-
+```
 
 - `/metadata`: This will return the data labelled as 'metadata' in the ISS data file
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/metadata'
 	{
 	  "CENTER_NAME": "EARTH",
@@ -90,12 +90,12 @@ The main method of interaction with the application is through `curl` commands. 
 	  "STOP_TIME": "2024-081T12:00:00.000Z",
 	  "TIME_SYSTEM": "UTC"
 	}
-
+```
 
 - `/epochs?limit=int&offset=int`: If an unspecified limit and offset is given, the entire set of data will be returned as a list and outputted onto the screen. A specified limit value replacing 'int' will limit the number of epochs in the list to the specified value. A specified offset value replacing 'int' will begin the list at the specified epoch from the entire list, starting with an index of 0.
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/epochs?limit=1'
 	[
 	  {
@@ -113,11 +113,11 @@ The main method of interaction with the application is through `curl` commands. 
 	      "@units": "km"
 	    },
 	    ...
-
+```
 - `/epochs/<epoch>`: This will return and output the specific epoch and data associated with that epoch if a proper epoch is given. Epochs in this data set are typically in the format `yyyy-dddThh:mm:ss.xxxZ`
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/epochs/2024-066T12:00:00.000Z'
 	{
 	  "EPOCH": "2024-066T12:00:00.000Z",
@@ -134,20 +134,20 @@ The main method of interaction with the application is through `curl` commands. 
 	    "@units": "km"
 	  },
 	...
-
+```
 
 - `/epochs/<epoch>/speed`: This will return and output the speed calculated from the specified epoch if a proper epoch is given.
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/epochs/2024-066T12:00:00.000Z/speed'
 	7.651931396786866
-
+```
 
 - `/epochs/<epoch>/location`: This will return and output the approximate latitude, longitude, altitude in kilometers, and geographical location that the ISS is orbiting over at the given epoch. If there is no geographical location closest to the ISS, 'Over Ocean' will be returned instead.
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/epochs/2024-066T12:00:00.000Z/location'
 	[
 	  "-51.09781175221881",
@@ -155,12 +155,12 @@ The main method of interaction with the application is through `curl` commands. 
 	  "421.00853683979494",
 	  "Over Ocean"
 	]
-
+```
 
 - `/now`: This will return and output the most recent epoch that has passed, its associated data, speed, coordinates, and approximate current geographical location based on the current time in UTC.
 
     - Sample Output:
-
+```
 	$ curl 'http://127.0.0.1:5000/now'  # Sample taken at 07:25:44 UTC
 	{
 	  "ALTITUDE (km)": "418.1268922693207",
@@ -177,7 +177,7 @@ The main method of interaction with the application is through `curl` commands. 
 	    "@units": "km/s"
 	  },
 	...
-
+```
 ### Software Diagram
 
 This software diagram displays each component of the project, with the files and scripts that are included in each system. The arrows indicate a command or dependency that is associated with each file.
